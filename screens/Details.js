@@ -45,7 +45,7 @@ const Details = ({ route, navigation }) => {
     console.log(data);
     console.log('-------------------------------------');
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
             <FocusedStatusBar
                 barStyle="dark-content"
                 backgroundColor="transparent"
@@ -79,6 +79,20 @@ const Details = ({ route, navigation }) => {
                     <React.Fragment>
                         <DetailsHeader data={data} navigation={navigation} />
                         <SubInfo />
+                        <View style={{ padding: SIZES.font }}>
+                            <DetailsDesc data={data} />
+                            {data.bids.length > 0 && (
+                                <Text
+                                    style={{
+                                        fontSize: SIZES.font,
+                                        fontFamily: FONTS.semiBold,
+                                        color: COLORS.primary,
+                                    }}
+                                >
+                                    Current Bid
+                                </Text>
+                            )}
+                        </View>
                     </React.Fragment>
                 )}
             />
